@@ -16,7 +16,7 @@ import { Layout } from '../components/Layout'
 import { UserItem } from '../components/UserItem'
 
 const HasuraCRUD: VFC = () => {
-  console.log('hasura-curd rendered')
+  // console.log('hasura-curd rendered')
   const [editedUser, setEditedUser] = useState({ id: '', name: '' })
   const { data, error } = useQuery<GetUsersQuery>(GET_USERS, {
     fetchPolicy: 'cache-and-network',

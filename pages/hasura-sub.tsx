@@ -18,7 +18,7 @@ const FetchSub: VFC = () => {
       <p className="mb-6 font-bold">Direct read out from cache</p>
 
       {data?.users.map((user) => {
-        console.log(data)
+        // console.log(data)
         return (
           <p className="my-1" key={user.id}>
             {user.name}

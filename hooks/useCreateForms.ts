@@ -26,7 +26,7 @@ export const useCreateForm = () => {
     setUsername(e.target.value)
   }, [])
   const printMsg = useCallback(() => {
-    console.log('Hello')
+    // console.log('Hello')
   }, [])
   const handleSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
