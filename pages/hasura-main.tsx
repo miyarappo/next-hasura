@@ -6,7 +6,7 @@ import { GetUsersQuery } from '../types/generated/graphql'
 import { Layout } from '../components/Layout'
 
 const FetchMain: VFC = () => {
-  const { data, error } = useQuery<GetUsersQuery>(GET_USERS, {
+  const { data, loading, error } = useQuery<GetUsersQuery>(GET_USERS, {
     // 毎回最新のデータを取得。キャッシュに保持
     // fetchPolicy: 'network-only',
     // 毎回最新のデータを取得。キャッシュに保持。取得中はキャッシュを表示
@@ -16,6 +16,12 @@ const FetchMain: VFC = () => {
     // キャッシュを使わない。通常のAPIクライアントと同じ挙動
     // fetchPolicy: 'no-cache',
   })
+  if (loading)
+    return (
+      <Layout title="Hasura fetchPolicy">
+        <p>loading...</p>
+      </Layout>
+    )
   if (error)
     return (
       <Layout title="Hasura fetchPolicy">

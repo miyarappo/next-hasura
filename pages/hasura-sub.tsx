@@ -6,7 +6,13 @@ import { GetUsersQuery } from '../types/generated/graphql'
 import { Layout } from '../components/Layout'
 
 const FetchSub: VFC = () => {
-  const { data, error } = useQuery<GetUsersQuery>(GET_USERS_LOCAL)
+  const { data, loading, error } = useQuery<GetUsersQuery>(GET_USERS_LOCAL)
+  if (loading)
+    return (
+      <Layout title="Hasura fetchPolicy">
+        <p>loading</p>
+      </Layout>
+    )
   if (error)
     return (
       <Layout title="Hasura fetchPolicy">
@@ -14,7 +20,7 @@ const FetchSub: VFC = () => {
       </Layout>
     )
   return (
-    <Layout title="Hsura fetchPolicy">
+    <Layout title="Hasura fetchPolicy">
       <p className="mb-6 font-bold">Direct read out from cache</p>
 
       {data?.users.map((user) => {
