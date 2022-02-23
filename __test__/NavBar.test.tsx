@@ -10,6 +10,8 @@ import { setupServer } from 'msw/node'
 import { handlers } from '../mock//handlers'
 import 'setimmediate'
 
+process.env.NEXT_PUBLIC_HASURA_URL = 'https://dummy'
+
 initTestHelpers()
 
 const server = setupServer(...handlers)
